@@ -1,0 +1,53 @@
+import React, { useState } from "react";
+import Option from "./Option";
+
+const Poll = props => {
+  const [votes, setVotes] = useState(props.data.votes);
+  const options = props.data.options.map(d => {
+    return <Option option={d} globalVotes={votes} setGlobalVotes={setVotes} />;
+  });
+
+  return (
+    <div className="card">
+      <p className="title">{props.data.title}</p>
+      <div>{options}</div>
+      <div className="poll_footer">{votes} people voted</div>
+    </div>
+  );
+};
+
+export default Poll;
+
+// ///////////////////////////////////////////////////
+//                                                  //
+//                                                  //
+//                     ___                          //
+//                    / | \                         //...
+//                   |_ _ _|                        //...
+//                   |     |                        //...
+//                   | (  }|                        //...
+//                   |  } (|                        //...
+//           _____   | {   |  _____                 //...
+//          /  .   \ |     | /     \                //...
+//         /   .    \|     |/       \               //...
+//        |  .  .   .     .   .   . |               //...
+//         \    .     .     .  .   /                //...
+//          \_____________________/                 //...
+//                                                  //...
+//                                                  //...
+//                                                  //...
+// ///////////////////////////////////////////////////...
+//  .c...........t.......g......b.................u.i....
+//  ....u...t.......in..............i...s....c........t..
+
+//  _________________________________
+// |      ____________________      |
+// |     |                   |      |
+// |     |       Хуйня       |      |
+// |     |                   |      |
+// |     |  + Да             |      |
+// |     |                   |      |
+// |     |  - Нет            |      |
+// |     |                   |      |
+// |     |___________________|      |
+// |________________________________|

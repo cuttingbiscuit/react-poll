@@ -1,0 +1,15 @@
+{
+    "title": "Example Poll",
+    "votes": 9,
+    "options": [
+        {
+            "title": "Yes",
+            "count": 6
+        },
+        {
+            "title": "No",
+            "count": 3
+        }
+    ]
+
+}
