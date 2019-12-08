@@ -1,10 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Option from "./Option";
 
 const Poll = props => {
   const [votes, setVotes] = useState(props.data.votes);
+
+  const addVote = () => {
+    setVotes(votes + 1);
+  };
+
+  const [ip, setIP] = useState(null);
+
+  // вынести в пользовательский хук useIP
+  useEffect(() => {
+    fetch("https://api.ipify.org?format=json")
+      .then(res => res.json())
+      .then(result => {
+        setIP(result.ip);
+        console.log(1);
+      });
+  }, []);
+
   const options = props.data.options.map(d => {
-    return <Option option={d} globalVotes={votes} setGlobalVotes={setVotes} />;
+    return <Option key={d.title} option={d} addVote={addVote} />;
   });
 
   return (
